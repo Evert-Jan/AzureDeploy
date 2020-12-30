@@ -19,9 +19,11 @@ az network vnet create  \
     --location ${azurelocation} \
     --subnet-name ${subnetname} \
     --subnet-prefixes 172.16.10.0/24 \
-    --tags ${tagskey1}=${tagvalue1}
+    --tags ${tagskey1}=${tagvalue1} \
+    --resource-group ${resourcegroupname} 
 
-az netowrk private-dns zone create \
+
+az network private-dns zone create \
     --name ${privatednsname} \
     --resource-group ${resourcegroupname} 
 
