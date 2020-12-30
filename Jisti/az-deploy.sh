@@ -22,7 +22,6 @@ az network vnet create  \
     --tags ${tagskey1}=${tagvalue1} \
     --resource-group ${resourcegroupname} 
 
-
 az network private-dns zone create \
     --name ${privatednsname} \
     --resource-group ${resourcegroupname} 
