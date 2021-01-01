@@ -22,6 +22,8 @@ az network vnet create  \
     --tags ${tagskey1}=${tagvalue1} \
     --resource-group ${resourcegroupname} 
 
+az network vnet list --output table 
+
 az network private-dns zone create \
     --name ${privatednsname} \
     --resource-group ${resourcegroupname} 
@@ -32,3 +34,11 @@ az network watcher configure \
     --location ${azurelocation} \
     --enable true
 
+az network private-dns link vnet create \
+    --name jisti-servers\
+    --registration-enabled true \
+    --resource-group ${resourcegroupname} \
+    --virtual-network \ 
+    --zone-name \
+    --subscription \
+    --tags
