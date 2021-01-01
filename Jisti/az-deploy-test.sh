@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 source ./az-deploy.values
-zoneID=(az network vnet list --query [].id --output tsv)
+zoneName=(az network vnet list --query [].name --output tsv)
 az network private-dns link vnet create \
     --name jisti-servers\
     --registration-enabled true \
