@@ -1,5 +1,4 @@
 #!/bin/bash
-//remark
 set -x
 source ./az-deploy.values
 VirtualNetworkName=$(az network vnet list --query [].name --output tsv)
