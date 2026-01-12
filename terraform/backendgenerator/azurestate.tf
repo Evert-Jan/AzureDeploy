@@ -1,17 +1,3 @@
-locals {
-  environment = "poc"
-  location    = "westeurope"
-  tags = {
-    environment = local.environment
-    location    = local.location
-    deployed-by = data.azuread_user.current_user.user_principal_name
-    owner       = data.azuread_user.current_user.user_principal_name
-    managed     = "Local Terraform State"
-    git         = "https://github.com/topicusonderwijs/eduarte-alles-mag-dinsdag/terraform/backendgenerator"
-  }
-}
-
-
 resource "azurerm_resource_group" "tfstate" {
   name     = local.statergname
   location = local.location

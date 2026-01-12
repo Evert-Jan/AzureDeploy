@@ -66,7 +66,7 @@ resource "local_file" "locals" {
 locals {
   environment = "poc"
   prefix          = "${substr(local.upntrimmed, 0, 5)}"
-  location        = "westeurope"
+  location        = "${local.location}"
   subscription_id = "${local.subscriptionid}"
   tags = {
     location    = local.location
