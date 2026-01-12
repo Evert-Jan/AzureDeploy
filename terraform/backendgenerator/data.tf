@@ -2,6 +2,7 @@ data "azurerm_client_config" "current" {}
 
 data "azuread_user" "current_user" {
   user_principal_name =nonsensitive(replace(lower(module.shell_data_getupn.stdout), "\"", "") )
+  # user_principal_name =nonsensitive(replace(lower("evert-jan_live.nl#EXT#@evertjanlive.onmicrosoft.com"), "\"", "") )
 }
 
 # output "azurerm_client_config" {
@@ -34,8 +35,8 @@ module "shell_data_getupn" {
   // this command from a local file instead of specifying it as
   // a string.
   command_unix = <<EOF
-az account show --query user.name
-EOF
+  az ad signed-in-user show --query 'userPrincipalName' --output tsv
+  EOF
   working_dir = path.module
   fail_on_nonzero_exit_code = true
   fail_on_stderr = false

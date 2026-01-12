@@ -65,7 +65,9 @@ resource "local_file" "locals" {
   content  = <<-EOF
 locals {
   environment = "poc"
-  location    = "westeurope"
+  prefix          = "${substr(local.upntrimmed, 0, 5)}"
+  location        = "westeurope"
+  subscription_id = "${local.subscriptionid}"
   tags = {
     location    = local.location
     deployed-by = "${data.azuread_user.current_user.user_principal_name}"
